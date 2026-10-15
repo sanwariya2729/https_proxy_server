@@ -2,11 +2,11 @@
 
 A high-performance HTTP/1.1 forward proxy written in C++20 for Linux, featuring configurable destination policies, request validation, structured audit logging, and SSRF protection.
 
-## 🎯 Project Overview
+##  Project Overview
 
 This proxy sits between clients and upstream web servers, validating requests, enforcing security policies, and providing detailed metrics. Built as a campus SDE internship portfolio project demonstrating systems programming, network security, and concurrent design.
 
-## ✨ Features
+##  Features
 
 - **HTTP/1.1 Forward Proxy** - Parses and forwards HTTP requests to upstream servers
 - **Policy Engine** - Configurable allow/block lists with domain and port filtering
@@ -16,7 +16,7 @@ This proxy sits between clients and upstream web servers, validating requests, e
 - **Resource Limits** - Configurable timeouts, header size limits, connection caps
 - **Thread Safety** - Lock-free atomic counters for high-performance metrics
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────┐         ┌──────────────┐         ┌──────────┐
@@ -37,7 +37,7 @@ This proxy sits between clients and upstream web servers, validating requests, e
 - **Metrics**: Thread-safe counters and latency measurements
 - **Worker Pool**: Bounded thread pool with queue for concurrent request handling
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -72,7 +72,7 @@ cmake --build build
 ./build/proxy --bind 127.0.0.1 --port 8080 --config config/policy.conf
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `config/policy.conf`:
 
@@ -102,7 +102,7 @@ connect_timeout=5
 upstream_timeout=30
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 
@@ -156,7 +156,7 @@ cmake --build build-asan
 ./build-asan/policy_tests
 ```
 
-## 📊 Metrics
+##  Metrics
 
 The proxy tracks:
 
@@ -184,7 +184,7 @@ Latency (ms):
 ========================
 ```
 
-## 🔒 Security Features
+##  Security Features
 
 ### SSRF Protection
 
@@ -207,7 +207,7 @@ The proxy blocks requests to dangerous address ranges:
 - Per-operation timeouts (prevents hanging connections)
 - Worker pool cap (limits concurrency)
 
-## 📈 Supported HTTP Subset
+##  Supported HTTP Subset
 
 ### Supported
 - Methods: GET, HEAD, POST
@@ -245,7 +245,7 @@ These limitations are **documented and intentional** for a 10-day MVP scope.
 **Why can throughput rise while p99 latency worsens?**
 - Higher load increases queueing and contention, worsening tail latency even as more requests complete
 
-## 📝 Project Structure
+##  Project Structure
 
 ```
 secure-http-proxy/
@@ -273,7 +273,7 @@ secure-http-proxy/
     └── benchmark-report.md # Performance measurements
 ```
 
-## 🚦 Known Issues & Future Work
+##  Known Issues & Future Work
 
 - No CONNECT tunneling for HTTPS (would need TLS interception)
 - No request body handling yet
@@ -281,21 +281,3 @@ secure-http-proxy/
 - Integration tests are simplified (full E2E requires more infrastructure)
 - Performance benchmarking needs load testing tool
 
-## 📚 References
-
-- [RFC 7230 - HTTP/1.1 Message Syntax](https://tools.ietf.org/html/rfc7230)
-- [RFC 7231 - HTTP/1.1 Semantics](https://tools.ietf.org/html/rfc7231)
-- [socket(2)](https://man7.org/linux/man-pages/man2/socket.2.html)
-- [getaddrinfo(3)](https://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
-
-## 📄 License
-
-Educational project for portfolio use.
-
-## 👤 Author
-
-Built as a network security internship portfolio project demonstrating C++20, systems programming, concurrent design, and security-first development practices.
-
----
-
-**Built with**: C++20 • Linux • CMake • Ninja
